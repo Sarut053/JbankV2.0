@@ -1,5 +1,7 @@
 <template>
   <div id="app-wrapper">
+    <!-- ExpenseTrackerService - ไม่มี UI แค่ให้บริการข้อมูล -->
+    <ExpenseTrackerService />
     <router-view/>
     <BottomNavigation v-if="!['scan'].includes($route.name)" />
   </div>
@@ -8,12 +10,20 @@
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component';
 import BottomNavigation from './components/BottomNavigation.vue';
+import ExpenseTrackerService from './components/ExpenseTrackerService.vue';
 
-@Options({ components: { BottomNavigation } })
+@Options({
+  components: {
+    BottomNavigation,
+    ExpenseTrackerService
+  }
+})
 export default class App extends Vue {}
 </script>
 
 <style>
+@import './assets/shared-styles.css';
+
 /* ... (Global Variables สีเดิม คงไว้เหมือนเดิม) ... */
 :root {
   --bg-primary: #1E293B;
@@ -25,6 +35,7 @@ export default class App extends Vue {}
   --color-success: #00d25b;
   --color-danger: #ff4267;
   --color-warning: #FFC107;
+  --color-primary: #3B82F6;
 }
 
 body {

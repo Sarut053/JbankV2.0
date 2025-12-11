@@ -1,0 +1,373 @@
+/* ========================================
+   SHARED STYLES - ใช้ร่วมกันทั้งแอป
+   ======================================== */
+
+/* === Page Layout === */
+.page-wrapper {
+  width: 100%;
+  max-width: 414px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  min-height: 100vh;
+  padding-bottom: 95px; /* Space for bottom navigation (75px height + 20px extra) */
+}
+
+.content-wrapper {
+  padding: 0 20px;
+  padding-bottom: 20px;
+}
+
+.list-wrapper {
+  background: var(--bg-secondary);
+  border-radius: 30px 30px 0 0;
+  padding: 20px;
+  padding-bottom: 30px; /* Extra space at bottom */
+  min-height: calc(100vh - 250px);
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.section-header h3 {
+  margin: 0;
+  color: var(--text-main);
+  font-size: 18px;
+}
+
+/* === Balance Cards === */
+.main-card {
+  background: var(--bg-card);
+  border-radius: 20px;
+  padding: 20px;
+  text-align: center;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.main-card p,
+.main-card .label {
+  color: var(--text-muted);
+  font-size: 14px;
+  margin: 0;
+}
+
+.main-card h1,
+.main-card .balance-text {
+  font-size: clamp(20px, 5vw, 32px);
+  color: var(--text-main);
+  margin: 10px 0 0 0;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
+  line-height: 1.2;
+}
+
+/* === Stats Grid (Income/Expense Cards) === */
+.stats-grid,
+.stats-row {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.stat-card,
+.stat-box {
+  flex: 1;
+  background: var(--bg-card);
+  border-radius: 20px;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  min-width: 0;
+}
+
+.stat-content,
+.stat-box > div {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-align: left;
+}
+
+.icon-wrapper,
+.icon-box {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.icon-wrapper svg,
+.icon-box svg,
+.action-icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* Income Styles */
+.income .icon-wrapper,
+.income .icon-box {
+  color: var(--color-success);
+  background: rgba(0, 210, 91, 0.1);
+  border: 1px solid rgba(0, 210, 91, 0.2);
+}
+
+.income .stat-value,
+.income h4 {
+  color: var(--color-success);
+}
+
+/* Expense Styles */
+.expense .icon-wrapper,
+.expense .icon-box {
+  color: var(--color-danger);
+  background: rgba(255, 66, 103, 0.1);
+  border: 1px solid rgba(255, 66, 103, 0.2);
+}
+
+.expense .stat-value,
+.expense h4 {
+  color: var(--color-danger);
+}
+
+.stat-label,
+.stat-box p {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin: 0 0 4px 0;
+  white-space: nowrap;
+}
+
+.stat-value,
+.stat-box h4 {
+  font-size: clamp(12px, 3vw, 16px);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--text-main);
+}
+
+/* === Calendar Picker === */
+.calendar-wrapper {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.calendar-svg,
+.calendar-wrapper svg {
+  width: 20px;
+  height: 20px;
+  color: var(--text-main);
+  pointer-events: none;
+}
+
+.month-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* === Scroll Area === */
+.scroll-area {
+  padding-bottom: 20px; /* Extra padding at bottom for scroll */
+}
+
+/* === GLOBAL SAFE AREA FOR BOTTOM NAV === */
+:root {
+  --bottom-nav-height: 75px;
+}
+
+body,
+#app {
+  padding-bottom: calc(var(--bottom-nav-height) + 20px); /* prevent overlap */
+}
+
+.safe-area-bottom {
+  padding-bottom: calc(var(--bottom-nav-height) + 20px);
+}
+
+/* === Empty State === */
+.empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--text-muted);
+}
+
+.empty-state p {
+  margin: 0;
+  font-size: 14px;
+}
+
+/* === Form Inputs === */
+.inp-group {
+  margin-bottom: 20px;
+}
+
+.inp-group label {
+  display: block;
+  color: var(--text-muted);
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.dark-inp {
+  width: 100%;
+  background: var(--bg-input);
+  border: 1px solid #444;
+  padding: 15px;
+  border-radius: 12px;
+  color: white;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+.dark-inp:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+/* === Buttons === */
+.btn,
+.save-btn {
+  background: var(--color-success);
+  border: none;
+  border-radius: 15px;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn:hover,
+.save-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+.btn:active,
+.save-btn:active {
+  transform: translateY(0);
+}
+
+/* === Transaction Wrapper === */
+.transaction-wrapper {
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.transaction-wrapper.selected {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* === Delete Button === */
+.delete-btn {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  background: var(--color-danger);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.delete-btn svg {
+  width: 20px;
+  height: 20px;
+  color: white;
+}
+
+.delete-btn:hover {
+  background: #d63450;
+  transform: translateY(-50%) scale(1.05);
+}
+
+.delete-btn:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+/* === Utility Classes === */
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.mb-10 {
+  margin-bottom: 10px;
+}
+
+.mb-15 {
+  margin-bottom: 15px;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+.mt-10 {
+  margin-top: 10px;
+}
+
+.mt-15 {
+  margin-top: 15px;
+}
+
+.mt-20 {
+  margin-top: 20px;
+}
+
+/* === SAFE AREA FOR PAGES USING page-wrapper === */
+.page-wrapper,
+.content-wrapper,
+.list-wrapper,
+.scroll-area {
+  padding-bottom: calc(var(--bottom-nav-height) + 30px) !important;
+}
+
+/* บังคับไม่ให้ navigation bar บังรายการที่เป็น list ยาวๆ */
+.transactions-list,
+.transaction-list-wrapper,
+.history-list,
+.scrollable {
+  padding-bottom: calc(var(--bottom-nav-height) + 50px) !important;
+}
